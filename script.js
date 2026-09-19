@@ -83,5 +83,8 @@ document.addEventListener("DOMContentLoaded", () => {
     addClickEvent("btn-back-from-diff", showLandingPage); addClickEvent("btn-back-from-settings", showLandingPage); addClickEvent("btn-back-from-donate", showLandingPage); addClickEvent("btn-back-from-dev", showLandingPage); addClickEvent("restart-btn", showLandingPage);
     addClickEvent("btn-easy", () => selectDifficulty("easy")); addClickEvent("btn-medium", () => selectDifficulty("medium")); addClickEvent("btn-hard", () => selectDifficulty("hard"));
     document.getElementById("lifeline-btn")?.addEventListener("click", useLifeline);
-    listenToLeaderboard(); listenToUpdateLog(); showLandingPage();
+    listenToLeaderboard();
+    listenToUpdateLog();
+    listenToTotalPlayCount(); // FIX: ini yang bikin Total Dimainkan tadinya 0x
+    showLandingPage();
 });
