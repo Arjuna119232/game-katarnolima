@@ -7,68 +7,48 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-
     <div id="confetti-container"></div>
-
     <div class="quiz-card" id="quiz-card">
-
-        <!-- 1. Halaman Awal -->
         <div id="landing-page">
             <h1 class="main-title">🎮 GAME KUIS</h1>
             <p class="branding-text">Karya <span>Katar 05</span></p>
             <p class="author-text">Pembuat: Divisi Humas Katar — <strong>Arjuna Mahendra</strong></p>
-
             <div class="main-menu-buttons">
                 <button class="menu-btn primary-btn" id="btn-start-game">▶️ START</button>
                 <button class="menu-btn secondary-btn" id="btn-open-settings">⚙️ SETTING</button>
                 <button class="menu-btn donate-btn" id="btn-open-donate">☕ DONASI PEMBUAT</button>
                 <button class="menu-btn dev-btn" id="btn-open-dev">🛠️ DEV MODE</button>
             </div>
-
             <div class="leaderboard-box">
                 <h3>🏆 Papan Skor Tertinggi</h3>
-                <ul id="leaderboard-list" class="leaderboard-list">
-                    <li>Belum ada rekor pemain.</li>
-                </ul>
+                <ul id="leaderboard-list" class="leaderboard-list"><li>Belum ada rekor pemain.</li></ul>
                 <p style="font-size:12px; color:#888; margin-top:8px; text-align:center;">Total dimainkan: <span id="global-play-count">0</span>x</p>
             </div>
-
-            <div class="update-log-box">
-                📢 <strong>Info Update Game:</strong>
-                <p id="update-log-text">Belum ada catatan pembaruan.</p>
-            </div>
+            <div class="update-log-box">📢 <strong>Info Update Game:</strong><p id="update-log-text">Belum ada catatan pembaruan.</p></div>
         </div>
 
-        <!-- 2. Dev Screen -->
         <div id="dev-screen" class="hide">
             <h2>🛠️ Developer Panel</h2>
-            <p class="subtitle">Panel Khusus Pengembang & Admin</p>
             <div class="dev-controls">
                 <button class="danger-btn" id="btn-reset-scores">🗑️ Reset Papan Skor</button>
-                <button class="danger-btn" style="background-color: #6c757d;" id="btn-reset-reviews">🗑️ Reset Masukan & Rating</button>
+                <button class="danger-btn" style="background-color: #6c757d;" id="btn-reset-reviews">🗑️ Reset Masukan</button>
                 <div class="update-input-group">
-                    <label for="update-input"><strong>Update Catatan Pembaruan:</strong></label>
-                    <textarea id="update-input" class="update-textarea" placeholder="Tulis info update/perbaikan kuis di sini..."></textarea>
-                    <button class="primary-btn" id="btn-save-update" style="margin-bottom: 15px;">💾 Simpan Info Update</button>
+                    <label for="update-input"><strong>Update Catatan:</strong></label>
+                    <textarea id="update-input" class="update-textarea" placeholder="Tulis info update..."></textarea>
+                    <button class="primary-btn" id="btn-save-update" style="margin-bottom:15px;">💾 Simpan Info Update</button>
                 </div>
-                <div class="reviews-box">
-                    <strong>⭐ Masukan & Rating Dari Pemain:</strong>
-                    <ul id="dev-reviews-list" class="dev-reviews-list">
-                        <li>Belum ada saran masuk.</li>
-                    </ul>
-                </div>
+                <div class="reviews-box"><strong>⭐ Masukan Pemain:</strong><ul id="dev-reviews-list" class="dev-reviews-list"><li>Belum ada saran masuk.</li></ul></div>
             </div>
             <button class="back-btn" id="btn-back-from-dev">⬅️ Kembali</button>
         </div>
 
-        <!-- 3. Start Screen -->
         <div id="start-screen" class="hide">
             <h2 id="welcome-player-text">Selamat Datang!</h2>
             <div id="name-input-box">
-                <p class="subtitle">Masukkan nickname kamu (dikunci selamanya):</p>
+                <p class="subtitle">Masukkan nickname (dikunci selamanya):</p>
                 <input type="text" id="player-name-input" class="name-input" placeholder="Ketik nickname..." maxlength="15">
             </div>
-            <p class="subtitle" style="margin-top: 15px;">Pilih Tingkat Kesulitan:</p>
+            <p class="subtitle" style="margin-top:15px;">Pilih Tingkat Kesulitan:</p>
             <div class="difficulty-buttons">
                 <button class="diff-btn" id="btn-easy">🟢 Mudah (15s)</button>
                 <button class="diff-btn" id="btn-medium">🟡 Sedang (10s)</button>
@@ -77,76 +57,38 @@
             <button class="back-btn" id="btn-back-from-diff">⬅️ Kembali</button>
         </div>
 
-        <!-- 4. Setting -->
         <div id="settings-screen" class="hide">
-            <h2>⚙️ Pengaturan Game</h2>
-            <div class="settings-list">
-                <div class="setting-item">
-                    <span>Efek Suara (Audio)</span>
-                    <button id="btn-toggle-sound" class="toggle-btn">🔊 ON</button>
-                </div>
-            </div>
+            <h2>⚙️ Pengaturan</h2>
+            <div class="settings-list"><div class="setting-item"><span>Efek Suara</span><button id="btn-toggle-sound" class="toggle-btn">🔊 ON</button></div></div>
             <button class="back-btn" id="btn-back-from-settings">⬅️ Kembali</button>
         </div>
 
-        <!-- 5. Donasi -->
         <div id="donate-screen" class="hide">
             <h2>☕ Donasi Pembuat</h2>
-            <p class="subtitle">Dukung karya Divisi Humas Katar 05 (Arjuna Mahendra):</p>
+            <p class="subtitle">Dukung karya Arjuna Mahendra:</p>
             <div class="donate-box">
-                <p><strong>Scan QRIS (GoPay / All Payment):</strong></p>
-                <div class="qris-container">
-                    <img src="qris.jpg" alt="Kode QRIS Donasi" class="qris-img" id="qris-image">
-                </div>
-                <br>
-                <a href="qris.jpg" download="QRIS-Donasi-Katar05.jpg" class="download-btn">📥 Unduh QRIS</a>
-                <p class="donate-note">Mendukung GoPay, OVO, Dana, ShopeePay, & M-Banking</p>
+                <p><strong>Scan QRIS:</strong></p>
+                <div class="qris-container"><img src="qris.jpg" alt="QRIS" class="qris-img"></div>
+                <a href="qris.jpg" download="QRIS-Donasi.jpg" class="download-btn">📥 Unduh QRIS</a>
             </div>
             <button class="back-btn" id="btn-back-from-donate">⬅️ Kembali</button>
         </div>
 
-        <!-- 6. Header Game -->
-        <div id="header-info" class="header-info hide">
-            <div id="lives-display">Nyawa: ❤️❤️❤️</div>
-            <button id="lifeline-btn" class="lifeline-btn">💡 50:50</button>
-            <div id="timer-display" class="timer">⏱️ 10s</div>
-        </div>
-
-        <div id="progress-container" class="progress-container hide">
-            <div id="progress-bar" class="progress-bar"></div>
-        </div>
-
-        <div id="quiz-box" class="hide">
-            <div id="question" class="question">Pertanyaan akan muncul di sini...</div>
-            <div id="answer-buttons" class="btn-grid"></div>
-            <div class="status-bar">
-                <span id="question-count">Soal 1 dari 10</span>
-                <span id="score-count">Skor: 0</span>
-            </div>
-        </div>
-
+        <div id="header-info" class="header-info hide"><div id="lives-display">Nyawa: ❤️❤️❤️</div><button id="lifeline-btn" class="lifeline-btn">💡 50:50</button><div id="timer-display" class="timer">⏱️ 10s</div></div>
+        <div id="progress-container" class="progress-container hide"><div id="progress-bar" class="progress-bar"></div></div>
+        <div id="quiz-box" class="hide"><div id="question" class="question"></div><div id="answer-buttons" class="btn-grid"></div><div class="status-bar"><span id="question-count"></span><span id="score-count"></span></div></div>
         <div id="result-box" class="hide">
-            <h2>Kuis Selesai! 🎉</h2>
-            <p id="final-score"></p>
-            <p id="high-score-display" class="high-score-text"></p>
+            <h2>Kuis Selesai! 🎉</h2><p id="final-score"></p><p id="high-score-display"></p>
             <div id="feedback-section" class="feedback-card hide">
-                <h3>⭐ Beri Rating & Saran</h3>
-                <p class="subtitle" style="font-size: 12px; margin-bottom: 8px;">Kamu sudah main 3x! Beri masukan:</p>
-                <div class="star-rating">
-                    <span class="star" data-value="1">★</span>
-                    <span class="star" data-value="2">★</span>
-                    <span class="star" data-value="3">★</span>
-                    <span class="star" data-value="4">★</span>
-                    <span class="star" data-value="5">★</span>
-                </div>
-                <textarea id="feedback-text" class="feedback-textarea" placeholder="Tulis kritik/saran untuk Arjuna..."></textarea>
-                <button id="btn-submit-feedback" class="primary-btn" style="width: 100%; margin-top: 10px;">Kirim Ulasan</button>
+                <h3>⭐ Beri Rating</h3>
+                <div class="star-rating"><span class="star" data-value="1">★</span><span class="star" data-value="2">★</span><span class="star" data-value="3">★</span><span class="star" data-value="4">★</span><span class="star" data-value="5">★</span></div>
+                <textarea id="feedback-text" class="feedback-textarea" placeholder="Tulis saran..."></textarea>
+                <button id="btn-submit-feedback" class="primary-btn" style="width:100%; margin-top:10px;">Kirim Ulasan</button>
             </div>
             <button class="restart-btn" id="restart-btn">Halaman Utama</button>
         </div>
     </div>
-
-    <!-- FIX: Firebase harus di atas script.js dan cuma 1x script.js -->
+    <!-- URUTAN BENAR -->
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-app.js"></script>
     <script src="https://www.gstatic.com/firebasejs/8.10.1/firebase-database.js"></script>
     <script src="script.js"></script>
